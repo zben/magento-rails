@@ -1,0 +1,13 @@
+.row
+  .span6=render 'products/category', :category=>@categories
+  .span10.last  
+    %h1=@product['name']
+    =image_tag @image_path,:width=>250
+    -if @product['price'].nil?  
+      %p price not available 
+    -else
+      %h5 
+        price:
+        =sprintf("$%05.2f", @product["price"])  
+
+   
