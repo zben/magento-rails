@@ -1,0 +1,6 @@
+.topbar
+  .topbar-inner
+    .container
+      %h3= link_to 'Ruby Magento', 'root_path'
+      %ul.nav= render :partial=>'products/category-nav',:collection=>category["children"],:as=>:category
+      
