@@ -1,0 +1,10 @@
+.topbar
+  .topbar-inner
+    .container
+      =link_to 'RailsMagento','#',:class=>'brand'
+      %ul.nav
+        -@categories.each do |cat|
+          %li{:class=>"#{!@category.nil? && @category['name']==cat['name'] ? 'active' : ''}"}=link_to cat['name'],category_path(cat['category_id'])
+        %li=link_to 'Sign up',''
+        %li=link_to 'Sign in',''
+        %li=link_to 'Sign out',''

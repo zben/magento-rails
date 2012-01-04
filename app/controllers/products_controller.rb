@@ -6,11 +6,10 @@ class ProductsController < ApplicationController
     @categories= xmlcall('category.tree')["children"][0]["children"]
     if params[:category_id]
       @category = call 'category.info',:string=> params[:category_id]
-      @products = call "category.assignedProducts",:string=>params[:category_id]
-#      @products = @products.map{|product| xmlcall('product.list',:product_id=>product["product_id"])[0]}
-      @products = @products.map{|product| xmlcall('product.list',:product_id=>product["product_id"])[0]}
+      #@products = call "category.assignedProducts",:string=>params[:category_id]
+      #@products = @products.map{|product| xmlcall('product.list',:product_id=>product["product_id"])[0]}
     else
-      @products = call 'product.list'
+      #@products = call 'product.list'
     end
     
    
@@ -61,6 +60,44 @@ class ProductsController < ApplicationController
     end
     session =  response[:login_response][:login_return];
     response = client.request :call do
+        if options.empty?
+          soap.body = {:session => session,:method => method}
+        elsif options[:string]
+          soap.body = {:session => session,:method => method, :arguments=>[options[:string]]}
+        else
+          soap.body = {:session => session,:method => method, :arguments=>options}
+        end
+    end
+    if response.success?
+     # listing found products
+      final=[]
+      call_return = response[:call_response][:call_return]
+      return [] if call_return[:item].nil?
+      raw = call_return[:item]
+      
+      if raw.is_a? Hash #this is a list of one item
+        final << raw[:item].inject({}){|x,y| x.merge(y[:key]=>y[:value])}
+      else 
+        if raw[0][:item].nil? #this is a product info
+          return raw.inject({}){|x,y| x.merge(y[:key]=>y[:value])}
+        else #this is a list of many items
+          raw.each{|result| final << result[:item].inject({}){|x,y| x.merge(y[:key]=>y[:value])}}
+        end
+      end
+      final
+    end
+    
+  end
+  
+  def multicall method, options={}
+    client = Savon::Client.new do
+      wsdl.document = "http://mrails.gostorego.com/index.php/api/?wsdl"
+    end
+    response = client.request :login do
+      soap.body = { :username => API_USER, :apiKey => API_KEY }
+    end
+    session =  response[:login_response][:login_return];
+    response = client.request :multicall do
         if options.empty?
           soap.body = {:session => session,:method => method}
         elsif options[:string]
