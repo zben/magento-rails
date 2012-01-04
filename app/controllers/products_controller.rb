@@ -6,10 +6,10 @@ class ProductsController < ApplicationController
     @categories= xmlcall('category.tree')["children"][0]["children"]
     if params[:category_id]
       @category = call 'category.info',:string=> params[:category_id]
-      #@products = call "category.assignedProducts",:string=>params[:category_id]
-      #@products = @products.map{|product| xmlcall('product.list',:product_id=>product["product_id"])[0]}
+      @products = call "category.assignedProducts",:string=>params[:category_id]
+      @products = @products.map{|product| xmlcall('product.list',:product_id=>product["product_id"])[0]}
     else
-      #@products = call 'product.list'
+      @products = call 'product.list'
     end
     
    

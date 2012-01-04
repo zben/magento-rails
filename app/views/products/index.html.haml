@@ -1,9 +1,12 @@
 .row
   .span6
     %h2 Category
-    =render :partial=>'products/category', :as=>:category,:collection=>@categories
-/  .span10.last  
-/    %h2=@category.nil? ? "All Products" : @category["name"]
-/    -@products.each do |product|
-/      %p=link_to product["name"],product_path(product['product_id'])
+
+    %ul=render :partial=>'products/category', :as=>:category,:collection=>@categories
+  .span10.last  
+    %h2=@category.nil? ? "All Products" : @category["name"]
+    %ul
+    -@products.each do |product|
+      %li=link_to product["name"],product_path(product['product_id'])
+
 
