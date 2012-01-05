@@ -6,8 +6,7 @@ class ProductsController < ApplicationController
     @categories= xmlcall('category.tree')["children"][0]["children"]
     if params[:category_id]
       @category = call 'category.info',:string=> params[:category_id]
-      @products = call "category.assignedProducts",:string=>params[:category_id]
-      @products = @products.map{|product| xmlcall('product.list',:product_id=>product["product_id"])[0]}
+      @products = get_product_list_by_category(@category)
     else
       @products = call 'product.list'
     end
@@ -16,7 +15,7 @@ class ProductsController < ApplicationController
   end
    
   def show
-    @categories= xmlcall 'category.tree'
+    @categories= xmlcall('category.tree')["children"][0]["children"]
     @product = call('product.info',:string=>params[:id])
     @image_path = call('product_media.list',:string=>params[:id])[0]["url"]
   end
@@ -24,6 +23,18 @@ class ProductsController < ApplicationController
   def search
   end
   
+  def get_product_list_by_category(category)
+      @products=[]
+      if category['level']=="2"
+        category['children'].split(',').each do |subcat_id|
+          @products+=call("category.assignedProducts",:string=>subcat_id)
+        end
+      else
+        @products = call "category.assignedProducts",:string=>category['category_id']  
+      end
+   
+     @products = @products.map{|product| xmlcall('product.list',:product_id=>product["product_id"])[0]}
+  end
 
   
   def get_categories

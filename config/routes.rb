@@ -1,5 +1,7 @@
 Magento::Application.routes.draw do
 
+  resources :authentications
+
   resources :products
   get "products/search"
   match "products/category/:category_id"=>"products#index",:as=>'category'

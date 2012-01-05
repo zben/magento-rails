@@ -1,5 +1,8 @@
 .row
-  .span6=render 'products/category', :category=>@categories
+  .span6
+    %h2 Category
+
+    %ul=render :partial=>'products/category', :as=>:category,:collection=>@categories
   .span10.last  
     %h1=@product['name']
     =image_tag @image_path,:width=>250

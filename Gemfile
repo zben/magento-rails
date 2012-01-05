@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
-
+gem 'devise'
+gem 'omniauth'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
@@ -15,7 +16,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem "nifty-generators", :group => :development
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -34,3 +35,4 @@ group :test do
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
 end
+gem "mocha", :group => :test
