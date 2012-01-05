@@ -6,4 +6,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+//= require bootstrap-alerts
+//= require bootstrap-dropdown
+//= require bootstrap-modal
+// Twipsy has to be loaded before popover,
+// otherwise causes a JS error.
+//= require bootstrap-twipsy
+//= require bootstrap-popover
+//= require bootstrap-scrollspy
+//= require bootstrap-tabs
+
 //= require_tree .

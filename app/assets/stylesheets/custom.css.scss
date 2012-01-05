@@ -1,3 +1,4 @@
-.topbar{
-  position:static;
+// top padding for body to keep the top bar from covering stuff up
+body {
+	padding-top:40px;
 }
