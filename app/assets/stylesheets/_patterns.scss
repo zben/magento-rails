@@ -22,16 +22,6 @@
     text-shadow: 0 -1px 0 rgba(0,0,0,.25);
   }
 
-  // Hover and active states
-  // h3 for backwards compatibility
-  h3 a:hover,
-  .brand a:hover,
-  ul .active > a {
-    background-color: #333;
-    background-color: rgba(255,255,255,.05);
-    color: $white;
-    text-decoration: none;
-  }
 
   // Website name
   // h3 left for backwards compatibility
@@ -48,6 +38,17 @@
     font-size: 20px;
     font-weight: 200;
     line-height: 1;
+  }
+
+  // Hover and active states
+  // h3 for backwards compatibility
+  h3 a:hover,
+  a.brand:hover,
+  ul .active > a {
+    background-color: #333;
+    background-color: rgba(255,255,255,.05);
+    color: $white;
+    text-decoration: none;
   }
 
   // Plain text in topbar
