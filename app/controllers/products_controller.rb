@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     if params[:category_id]
       @category = call 'category.info',:string=> params[:category_id]
       @products = get_product_list_by_category(@category)
+      
     else
       @products = call 'product.list'
     end

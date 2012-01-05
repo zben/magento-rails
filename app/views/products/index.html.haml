@@ -1,7 +1,8 @@
 .row
   .span6
-    %h2 Category
 
+    %h2 Category
+    
     %ul=render :partial=>'products/category', :as=>:category,:collection=>@categories
   .span10.last  
     %h2=@category.nil? ? "All Products" : @category["name"]

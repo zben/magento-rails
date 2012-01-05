@@ -1,4 +1,8 @@
 // top padding for body to keep the top bar from covering stuff up
-body {
-	padding-top:40px;
+.topbar {
+	position:static;
+	  li.logo{
+	    padding:0;
+	  }
 }
+

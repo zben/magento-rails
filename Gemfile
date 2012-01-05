@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
-gem 'devise'
-gem 'omniauth'
+gem 'devise','1.5.2'
+gem "omniauth-facebook"
+gem "erb2haml", :group => :development
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
