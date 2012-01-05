@@ -8,6 +8,7 @@ gem "erb2haml", :group => :development
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
 gem 'haml'
+gem 'cells'
 gem 'savon'
 gem 'rest-client'
 # Gems used only for assets and not required
