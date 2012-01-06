@@ -7,6 +7,6 @@
           %li{:class=>"#{params["category_id"]==cat['category_id'] ? 'active' : ''}"}
             =link_to cat['name'],category_path(cat['category_id'])
         %li.logo=link_to image_tag('facebook_connect_long.png'), user_omniauth_authorize_path(:facebook) if !user_signed_in?
-        %li=link_to 'Wishlists','' if user_signed_in? 
+        %li=link_to 'Wishlists',wishlists_path if user_signed_in? 
         %li=link_to 'Cart(5 items)','' if user_signed_in? 
         %li=link_to "Logout for #{session['name']}",destroy_user_session_path,:method=>:delete if user_signed_in?

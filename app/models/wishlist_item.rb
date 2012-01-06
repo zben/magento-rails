@@ -4,6 +4,6 @@ class WishlistItem < ActiveRecord::Base
   belongs_to :wishlist
   
   def product 
-    MagentoAPI.call 'product.info',:string=>product_id
+    Product.new(product_id)
   end
 end
