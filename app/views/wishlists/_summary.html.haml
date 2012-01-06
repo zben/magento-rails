@@ -1,6 +1,9 @@
 %h2 Wishlist
 -if user_signed_in?
-  -current_user.wishlists.each do |wishlist|
-    %li=link_to "#{wishlist.name} ( #{wishlist.wishlist_items.count} )",wishlist_path(wishlist)
+  -if current_user.wishlists.empty?
+    =link_to "add a wishlist",new_wishlist_path
+  -else
+    -current_user.wishlists.each do |wishlist|
+      %li=link_to "#{wishlist.name} ( #{wishlist.wishlist_items.count} )",wishlist_path(wishlist)
 -else
-  Please sign in to access your wishlist
+  Please #{link_to 'sign in',user_omniauth_authorize_path(:facebook)} to access your wishlists.
