@@ -1,0 +1,12 @@
+- title "Wishlist Item"
+%p
+  %strong Product:
+  = @wishlist_item.product_id
+%p
+  %strong Wishlist:
+  = @wishlist_item.wishlist_id
+%p
+  = link_to "Edit", edit_wishlist_item_path(@wishlist_item)
+  |
+  \#{link_to "Destroy", @wishlist_item, :confirm => 'Are you sure?', :method => :delete} |
+  \#{link_to "View All", wishlist_items_path}

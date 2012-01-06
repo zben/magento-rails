@@ -1,0 +1,13 @@
+- title "Wishlist Items"
+%table
+  %tr
+    %th Product
+    %th Wishlist
+  - for wishlist_item in @wishlist_items
+    %tr
+      %td= wishlist_item.product_id
+      %td= wishlist_item.wishlist_id
+      %td= link_to "Show", wishlist_item
+      %td= link_to "Edit", edit_wishlist_item_path(wishlist_item)
+      %td= link_to "Destroy", wishlist_item, :confirm => 'Are you sure?', :method => :delete
+%p= link_to "New Wishlist Item", new_wishlist_wishlist_item_path(@wishlist)

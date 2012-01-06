@@ -1,0 +1,11 @@
+= form_for [@wishlist,@wishlist_item] do |f|
+  = f.error_messages
+  %p
+    = f.label :product_id
+    %br/
+    = f.number_field :product_id
+  %p
+    = f.label :wishlist_id
+    %br/
+    = f.number_field :wishlist_id
+  %p= f.submit

@@ -16,9 +16,7 @@ class ProductsController < ApplicationController
   end
    
   def show
-    @categories= MagentoAPI.xmlcall('category.tree')["children"][0]["children"]
-    @product = MagentoAPI.call('product.info',:string=>params[:id])
-    @image_path = MagentoAPI.call('product_media.list',:string=>params[:id])[0]["url"]
+    @product = Product.new(params[:id])
   end
 
   def search

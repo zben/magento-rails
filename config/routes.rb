@@ -1,9 +1,14 @@
 Magento::Application.routes.draw do
 
-  resources :wishlist_items
 
-  resources :wishlists
+  resources :wishlists,:shallow=>true do
+    resources :wishlist_items
+  end
 
+  match 'wishlists/:wishlist_id/add/:product_id'=>"wishlist_items#create",:as=>"wishlist_add"
+  match 'wishlists/:wishlist_id/remove/:product_id'=>"wishlist_items#destroy",:as=>"wishlist_remove"
+
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   
   devise_scope :user do

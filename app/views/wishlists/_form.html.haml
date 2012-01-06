@@ -1,0 +1,9 @@
+= form_for @wishlist do |f|
+  = f.error_messages
+  %p
+    = f.label :wishlist_name
+    %br/
+    = f.text_field :name
+
+   
+  %p= f.submit

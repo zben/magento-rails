@@ -1,0 +1,3 @@
+%h2 Wishlist
+-current_user.wishlists.each do |wishlist|
+  %li=link_to "#{wishlist.name} ( #{wishlist.wishlist_items.count} )",wishlist_path(wishlist)
