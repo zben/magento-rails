@@ -1,7 +1,7 @@
--if category["is_active"]=="1"
+-if category.is_active
   %li 
-    =link_to category['name'],category_path(category['category_id']),:class=>"#{!@category.nil? && category["name"] == @category["name"] ? 'active' : ''}" 
-    -unless category["children"].empty? 
-      %ul= render :partial=>'nav/category',:collection=>category["children"],:as=>:category 
+    =link_to "#{category.name} (#{category.products.count})" ,category_path(category.id),:class=>"#{!@category.nil? && category.name == @category.name ? 'active' : ''}" 
+    -unless category.children.empty? 
+      %ul= render :partial=>'nav/category',:collection=>category.children,:as=>:category 
 
 

@@ -43,6 +43,6 @@ class WishlistItemsController < ApplicationController
   def destroy
     @wishlist_item = WishlistItem.find(params[:id])
     @wishlist_item.destroy
-    redirect_to wishlist_wishlist_items_url(para), :notice => "Successfully destroyed wishlist item."
+    redirect_to :back, :notice => "Successfully destroyed wishlist item."
   end
 end

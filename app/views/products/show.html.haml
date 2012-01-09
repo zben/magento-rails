@@ -1,19 +1,9 @@
-.row
-  .span3
-    =render_cell :nav, :leftnav
+%h1=@product.name
+=image_tag @product.image_url,:width=>250
+-if @product.price.nil?  
+  %p price not available 
+-else
+  %h5 
+    price: #{@product.price}
 
-  .span10  
-    %h1=@product.name
-    =image_tag @product.image_url,:width=>250
-    -if @product.price.nil?  
-      %p price not available 
-    -else
-      %h5 
-        price: #{@product.price}
-  .span3
-    =render 'wishlists/summary'
-    
 
-       
-
-   

@@ -1,18 +1,6 @@
-.row
-  .span3
-    =render_cell :nav, :leftnav
-  .span10  
-    %h2=@category.nil? ? "All Products" : @category["name"]
-    %ul
-    -@products.each do |product|
-      %li
-        =link_to product["name"],product_path(product['product_id'])
-        -if user_signed_in? 
-          -current_user.wishlists.each do |wishlist|
-            -if wishlist.wishlist_items.map{|x| x.product_id}.include?(product['product_id'].to_i)
-              =link_to "Remove from #{wishlist.name}",wishlist_remove_path(wishlist.id,product['product_id']),:class=>:remove
-            -else  
-              =link_to "Add to #{wishlist.name}",wishlist_add_path(wishlist.id,product['product_id']),:class=>:add
-  .span3
-    =render 'wishlists/summary'
+%h2=@category.nil? ? "All Products" : @category.name
+
+=render :partial=>'products/product',:as=>:product,:collection=>@products
+  
+= paginate @products  
 

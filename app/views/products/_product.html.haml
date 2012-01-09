@@ -1,0 +1,15 @@
+.row.product
+  .span2
+    =image_tag product.thumbnail_url, :width=>60
+  .span6
+    %h4=link_to product.name, product
+    =product.short_description
+  .span2.price
+    Price: #{product.price}
+    .add_to_wishlist=link_to 'Add to wishlist',''
+    %ul
+      -current_user.wishlists.each do |wishlist|
+        -if wishlist.products.include?(product)
+          %li=link_to "remove from #{wishlist.name}", wishlist_item_path(wishlist.find_item(product)),:method=>:delete 
+        -else
+          %li=link_to "add to #{wishlist.name}", wishlist_add_path(wishlist.id,product.id)

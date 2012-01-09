@@ -4,6 +4,6 @@ class WishlistItem < ActiveRecord::Base
   belongs_to :wishlist
   
   def product 
-    Product.new(product_id)
+    Product.find(product_id)
   end
 end

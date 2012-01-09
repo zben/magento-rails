@@ -6,8 +6,7 @@ Magento::Application.routes.draw do
   end
 
   match 'wishlists/:wishlist_id/add/:product_id'=>"wishlist_items#create",:as=>"wishlist_add"
-  match 'wishlists/:wishlist_id/remove/:product_id'=>"wishlist_items#destroy",:as=>"wishlist_remove"
-
+  match 'populate/:class_name'=>"products#populate", :as=>"populate"
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   

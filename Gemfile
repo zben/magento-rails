@@ -7,8 +7,11 @@ gem "erb2haml", :group => :development
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 gem 'sqlite3'
+gem 'kaminari'
 gem 'haml'
 gem 'cells'
+gem 'mongoid'
+gem 'bson_ext'
 gem 'savon'
 gem 'rest-client'
 # Gems used only for assets and not required

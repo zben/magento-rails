@@ -1,4 +1,7 @@
 %h3 Wishlist: #{@wishlist.name}
+= link_to "rename wishlist", edit_wishlist_path(@wishlist)
+|
+\#{link_to "delete wishlist", @wishlist, :confirm => 'Are you sure?', :method => :delete} 
 
 %p
   -if @wishlist_items.empty?
@@ -6,8 +9,4 @@
   -else
     =render @wishlist_items
   
-= link_to "edit name", edit_wishlist_path(@wishlist)
-|
-\#{link_to "delete wishlist", @wishlist, :confirm => 'Are you sure?', :method => :delete} 
-|
-\#{link_to "view all wishlists", wishlists_path}
+

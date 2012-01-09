@@ -7,12 +7,12 @@ class NavCell < Cell::Rails
   cache :leftnav, :expires_in => 10.minutes
   
   def topnav
-    @categories= MagentoAPI.xmlcall('category.tree')["children"][0]["children"]
+    @categories= Category.where(:level=>2)
     render
   end
 
   def leftnav
-    @categories= MagentoAPI.xmlcall('category.tree')["children"][0]["children"]
+    @categories= Category.where(:level=>2)
     render
   end
 end
