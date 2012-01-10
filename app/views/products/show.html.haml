@@ -3,10 +3,18 @@
   .span4
     =image_tag @product.image_url,:width=>210,:class=>'mainImg'
   .span6
-    -if @product.price.nil?  
-      %h4 Price not available
-    -else
-      %h4 $#{@product.price}
+    .row
+      .span2
+        -if @product.price.nil?  
+          %h3 Price not available
+        -else
+          %h3 $#{@product.price}
+      .span2
+        =link_to 'Wishlist It!', '#', :class=>'btn'
+      .span2
+        =link_to 'Buy it!', '#', :class=>'btn primary'
+
+
     %ul.tabs
       %li.active=link_to 'Description', '#desc'
       %li=link_to 'Specs', '#specs'

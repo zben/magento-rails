@@ -31,21 +31,14 @@ a.remove{
 	h4 {line-height:1.25;}
 	
 	.prodImage img {
-		padding:5px;
-		border: 1px solid #ddd;
-    @include border-radius(4px);
-    @include box-shadow(0 1px 1px rgba(0,0,0,.075));
-    
+		@include standard-border();
 	}
 }
 
 //PRODUCT PAGE STYLES
 
 .mainImg {
-	padding:5px;
-	border: 1px solid #ddd;
-  @include border-radius(4px);
-  @include box-shadow(0 1px 1px rgba(0,0,0,.075));
+	@include standard-border();
 }
 
 
@@ -95,6 +88,8 @@ a.remove{
 	list-style: none;
 }
 
+.catNav {@include standard-border();}
+
 .catNav li {
 	font-size:18px;
 	line-height:24px;
@@ -102,7 +97,7 @@ a.remove{
 	
 	a {
 		display:block;
-		padding:3px 12px;
+		padding:3px 0px;
 		&:hover {
 			background-color: $grayLighter;
 		}
@@ -112,11 +107,11 @@ a.remove{
 		font-size:$basefont;
 		line-height:$baseline;
 		font-weight:normal;
-		a {padding-left:24px;}
+		a {padding-left:12px;}
 		li {
-			a {padding-left:36px;}
+			a {padding-left:24px;}
 			li {
-				a {padding-left:48px;}
+				a {padding-left:36px;}
 			}
 		}
 	}
