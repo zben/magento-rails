@@ -6,7 +6,7 @@ class MagentoAPI
       end
      
       response = @@soap_client.request :login do
-        soap.body = { :username => ENV['API_USER'], :apiKey => ENV['API_KEY'] }
+        soap.body = { :username => API_USER, :apiKey => API_KEY }
       end
      
       @@soap_session =  response[:login_response][:login_return];
@@ -18,7 +18,7 @@ class MagentoAPI
       end
      
       response = @@soap_client.request :login do
-        soap.body = { :username => ENV['API_USER'], :apiKey => ENV['API_KEY'] }
+        soap.body = { :username => API_USER, :apiKey => API_KEY }
       end
      
       @@soap_session =  response[:login_response][:login_return];
@@ -29,7 +29,7 @@ class MagentoAPI
     require 'xmlrpc/client'
     #@client = XMLRPC::Client.new("localhost","/magentosite/api/xmlrpc/",80)
     @client = XMLRPC::Client.new("mrails.gostorego.com","/api/xmlrpc/",80)
-    session_id = @client.call('login',ENV['API_USER'],ENV['API_KEY'])
+    session_id = @client.call('login',API_USER,API_KEY)
     unless options.empty?
       puts Array.wrap(options)
       @client.call('call',session_id,method,Array.wrap(options))
