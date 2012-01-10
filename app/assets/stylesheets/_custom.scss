@@ -3,11 +3,15 @@
 .topbar {
 	//position:static;
 	  li.logo{
-	    padding:0;
+	    a {
+				padding-top:6px;
+				padding-bottom:7px;
+				img { display:block; }
+			}
 	  }
 }
 
-body {padding-top:80px;}
+body {padding-top:40px;}
 
 a.add, a.remove{
   color:white;
@@ -28,7 +32,15 @@ a.remove{
 .product {
 	margin-bottom:16px;
 	
-	h4 {line-height:1.25;}
+	h4 {
+		line-height:1.25;
+		margin-bottom: $baseline / 2;
+	}
+	p {
+		font-size:12px;
+		line-height:1.25;
+		color: $grayDark;
+	}
 	
 	.prodImage img {
 		@include standard-border();
@@ -43,6 +55,14 @@ a.remove{
 	@include standard-border();
 }
 
+
+
+form.variations {
+	margin-top:20px;
+	label {
+		
+	}
+}
 
 
 //FAKE LINK STYLE, FOR LINKS/buttons THAT ONLY WORK WITH JS
@@ -85,7 +105,6 @@ a.remove{
 
 //CATEGORY LISTING STYLES
 .catNav, .catNav ul {
-	//margin-left:12px;
 	margin-left:0px;
 	list-style: none;
 }

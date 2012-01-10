@@ -6,8 +6,12 @@
         -@categories.each do |cat|
           %li{:class=>"#{@category==cat ? 'active' : ''}"}
             =link_to cat.name,category_path(cat.id)
-        %li.logo=link_to image_tag('facebook_connect_long.png'), user_omniauth_authorize_path(:facebook) if !user_signed_in?
+        %li.logo=link_to image_tag('facebook_connect_small.png'), user_omniauth_authorize_path(:facebook) if !user_signed_in?
         %li=link_to 'Cart(5 items)','' if user_signed_in? 
-        %li=link_to "Logout for #{session['name']}",destroy_user_session_path,:method=>:delete if user_signed_in?
-        %li=link_to 'update category',populate_path('Category')
-        %li=link_to 'update products',populate_path('Product')
+        %li=link_to "Logout #{session['name']}",destroy_user_session_path,:method=>:delete if user_signed_in?
+      %ul.nav.secondary-nav
+        %li.dropdown{:data=>{'dropdown'=>'dropdown'}}
+          =link_to 'Utilities', '#', :class=>'dropdown-toggle'
+          %ul.dropdown-menu
+            %li=link_to 'update category',populate_path('Category')
+            %li=link_to 'update products',populate_path('Product')

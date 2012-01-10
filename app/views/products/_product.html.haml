@@ -3,7 +3,7 @@
     =image_tag product.thumbnail_url, :width=>90
   .span6
     %h4=link_to product.name, product
-    =product.short_description
+    %p=product.short_description
   .span2.price
 
     %p= "Price: #{product.pprice}"
