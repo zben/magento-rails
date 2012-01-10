@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 #ignore files with private information
-/config/initializers/magento.rb
+/config/initializers/01_magento.rb
 
 # Ignore bundler config
 /.bundle
