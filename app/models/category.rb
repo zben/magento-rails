@@ -29,15 +29,20 @@ class Category
   alias :old_products :products
   
   def products
-    if level == 2
-     return [old_products,children.map{|child| child.products}].flatten
-    else
+    if children.empty?
       old_products
-    end 
+    else  
+      [old_products + children.map{|child| child.products}].flatten
+    end
   end
   
-  def flatten
-    
+  def root_parent
+    if parent.nil?
+      self
+    else
+      parent.root_parent
+    end
   end
+  
 end
 

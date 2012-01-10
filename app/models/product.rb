@@ -9,6 +9,7 @@ class Product
   field :thumbnail_url, type: String
   field :short_description, type: String
   field :long_description, type: String
+  field :visility, type: Integer
   has_and_belongs_to_many :categories
   
   def self.populate
@@ -39,6 +40,7 @@ class Product
         :image_url => @image_url,
         :thumbnail_url => @thumbnail_url,
         :small_image_url => @small_image_url,
+        :visibilit=> product_info['visibility'],
         :category_ids => category_ids
       )  
       x.categories.map{|cat| cat.products << x}
@@ -47,6 +49,14 @@ class Product
   
   def pprice
     print_price(price)
+  end
+  
+  def category
+    categories[0]
+  end
+  
+  def root_category
+    categories[0].root_parent
   end
   
 end

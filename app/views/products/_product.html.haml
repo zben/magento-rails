@@ -6,7 +6,7 @@
     =product.short_description
   .span2.price
 
-    %p= "Price: #{product.price}"
+    %p= "Price: #{product.pprice}"
     -if user_signed_in? and !current_user.wishlists.empty?
       .add_to_wishlist
         %h5 Wishlist it!

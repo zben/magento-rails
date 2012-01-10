@@ -3,15 +3,17 @@ class NavCell < Cell::Rails
   include Devise::Controllers::Helpers
   helper_method :current_user 
   helper_method :user_signed_in? 
-  cache :topnav, :expires_in => 10.minutes
-  cache :leftnav, :expires_in => 10.minutes
   
-  def topnav
+  def topnav opts
+    @category = Category.find(params[:category_id].to_i).root_parent if params[:category_id]
+    @category = opts[:item].root_category unless opts[:item].nil? 
     @categories= Category.where(:level=>2)
     render
   end
 
-  def leftnav
+  def leftnav opts
+    @category = Category.find(params[:category_id].to_i) if params[:category_id]
+    @category = opts[:item].category unless opts[:item].nil? 
     @categories= Category.where(:level=>2)
     render
   end

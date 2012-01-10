@@ -7,10 +7,10 @@
     = csrf_meta_tags
 
   %body
-    =render_cell :nav, :topnav
+    =render_cell :nav, :topnav, :item=>@product
     .container
       .row
-        .span3=render_cell :nav, :leftnav
+        .span3=render_cell :nav, :leftnav, :item=>@product
         .span10=yield 
         .span3=render 'wishlists/summary' 
       
