@@ -13,23 +13,23 @@
  */
 
 // CSS Reset
-@import "reset.scss";
+@import "reset";
 
 // Core
-@import "variables.scss";  // Modify this for custom colors, font-sizes, etc
-@import "mixins.scss";
+@import "variables";  // Modify this for custom colors, font-sizes, etc
+@import "mixins";
 
 // Grid system and page structure
-@import "scaffolding.scss";
+@import "scaffolding";
 
 // Styled patterns and elements
-@import "type.scss";
-@import "forms.scss";
-@import "tables.scss";
-@import "patterns.scss";
+@import "type";
+@import "forms";
+@import "tables";
+@import "patterns";
 
 //Custom Overrides
 
-@import "helpers.scss";
+@import "helpers";
 
-@import "custom.scss";
+@import "custom";
