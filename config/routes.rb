@@ -5,6 +5,7 @@ Magento::Application.routes.draw do
     resources :wishlist_items
   end
 
+  resources :reviews
   match 'wishlists/:wishlist_id/add/:product_id'=>"wishlist_items#create",:as=>"wishlist_add"
   match 'populate/:class_name'=>"products#populate", :as=>"populate"
   

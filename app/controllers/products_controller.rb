@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
    
   def show
     @product = Product.find(params[:id].to_i)
+    @review = Review.new
   end
 
   def search

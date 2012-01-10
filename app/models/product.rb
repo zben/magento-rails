@@ -12,6 +12,7 @@ class Product
   field :visibility, type: Integer
   has_and_belongs_to_many :categories
   scope :visible, where(:visibility.in=>[2,4])
+  has_many :reviews
   
   def self.populate
     products = MagentoAPI.xmlcall('product.list')

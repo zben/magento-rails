@@ -50,9 +50,13 @@
       .tab-pane#specs
         %p Curabitur ut lobortis enim. Fusce accumsan faucibus faucibus. In bibendum ipsum non odio eleifend pulvinar. Mauris eget augue a erat hendrerit sodales. Nullam adipiscing lorem nec est fermentum iaculis. Nulla facilisi. Integer tempus lacus nec ligula lacinia in vestibulum sem fermentum. Aliquam erat enim, malesuada eu pulvinar a, fermentum vel turpis. Sed ultricies odio sit amet enim suscipit quis gravida dolor malesuada. Aenean at odio lectus.
       .tab-pane#reviews
-        %p Fusce ut tortor quis nibh accumsan egestas. Integer metus velit, molestie sit amet lacinia vel, rutrum ac sem. Maecenas laoreet massa vel turpis semper sagittis. Mauris rhoncus tempus sem, sit amet eleifend eros ullamcorper vel. Nulla hendrerit augue ullamcorper orci sollicitudin ac semper arcu condimentum. Donec nulla diam, aliquet ut tempus quis, faucibus sit amet diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam urna orci, rutrum ac pharetra suscipit, laoreet vitae mi. Proin mattis bibendum dui quis posuere.
-
-        
+        =form_for @review do |f|
+          =f.text_field :title
+          =f.text_area :content
+          =f.hidden_field :user_id,:value=>current_user.id
+          =f.hidden_field :product_id, :value=>@product.id
+          =f.submit
+        =render @product.reviews
       
 
 
