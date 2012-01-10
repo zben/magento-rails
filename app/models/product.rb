@@ -45,7 +45,7 @@ class Product
         :visibility=> product_info['visibility'].to_i,
         :category_ids => category_ids
       )  
-      x.categories.map{|cat| cat.products << x}
+      x.categories.map{|cat| cat.old_products << x}
     end
   end
   

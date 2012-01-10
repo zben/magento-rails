@@ -7,6 +7,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Facebook"
       logger.info request.env["omniauth.auth"]["credentials"]
       session["name"] = request.env["omniauth.auth"]["extra"]["raw_info"]["name"]
+      @user.update_attribute(:name,session["name"])
       sign_in_and_redirect @user, :event => :authentication
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
