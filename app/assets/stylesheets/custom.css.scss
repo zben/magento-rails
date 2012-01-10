@@ -1,4 +1,5 @@
 // top padding for body to keep the top bar from covering stuff up
+// this is temporary and will be refactored for visual cleanliness later
 .topbar {
 	//position:static;
 	  li.logo{
@@ -36,8 +37,12 @@ a.remove{
     @include box-shadow(0 1px 1px rgba(0,0,0,.075));
     
 	}
-	
 }
+
+//PRODUCT PAGE STYLES
+
+
+
 
 
 //FAKE LINK STYLE, FOR LINKS/buttons THAT ONLY WORK WITH JS
@@ -80,6 +85,35 @@ a.remove{
 
 //CATEGORY LISTING STYLES
 .catNav, .catNav ul {
-	margin-left:12px;
+	//margin-left:12px;
+	margin-left:0px;
 	list-style: none;
+}
+
+.catNav li {
+	font-size:18px;
+	line-height:24px;
+	font-weight:bold;
+	
+	a {
+		display:block;
+		padding:3px 12px;
+		&:hover {
+			background-color: $grayLighter;
+		}
+	}
+	
+	li {
+		font-size:$basefont;
+		line-height:$baseline;
+		font-weight:normal;
+		a {padding-left:24px;}
+		li {
+			a {padding-left:36px;}
+			li {
+				a {padding-left:48px;}
+			}
+		}
+	}
+	
 }

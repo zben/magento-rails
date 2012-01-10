@@ -27,8 +27,22 @@ $(document).ready(function(){
 			.children('h5')
 				//.addClass('fakeLink')
 				.addClass('btn')
-				.click(function(){
-					$(this).siblings('ul.wishLists').toggle(250, 'swing');
+				// this is the simple, faster way, if we don't want the button to change
+				// .click(function(){
+				// 	$(this).siblings('ul.wishLists').toggle(250, 'swing');
+				// })
+				.toggle(function(){
+					$(this)
+						.addClass('info')
+						.text('Close Wishlists')
+						.siblings('ul.wishLists')
+							.show(250, 'swing');
+				}, function(){
+					$(this)
+						.removeClass('info')
+						.text('Wishlist It!')
+						.siblings('ul.wishLists')
+							.hide(250, 'swing');
 				})
 				.end()
 			.children('ul.wishLists')
