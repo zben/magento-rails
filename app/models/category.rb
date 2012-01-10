@@ -12,6 +12,7 @@ class Category
     Category.all.delete
     categories = MagentoAPI.xmlcall('category.tree')["children"][0]["children"]
     categories.each{|x| add_record(x,nil)}
+
   end
   
   def self.add_record(category, parent)
@@ -30,9 +31,9 @@ class Category
   
   def products
     if children.empty?
-      old_products
+      old_products.visible
     else  
-      [old_products + children.map{|child| child.products}].flatten
+      [old_products.visible + children.map{|child| child.products}].flatten.uniq
     end
   end
   

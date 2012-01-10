@@ -5,9 +5,9 @@ class ProductsController < ApplicationController
     if params[:category_id]
       @category = Category.find(params[:category_id].to_i)
       @products = @category.products
-      @products = Kaminari.paginate_array(@products).page(params[:page]).per(10)
+      @products = Kaminari.paginate_array(@products).page(params[:page]).per(4)
     else
-      @products = Product.all.page(params[:page]).per(10)
+      @products = Product.all.visible.page(params[:page]).per(4)
     end
   end
    

@@ -7,14 +7,14 @@ class NavCell < Cell::Rails
   def topnav opts
     @category = Category.find(params[:category_id].to_i).root_parent if params[:category_id]
     @category = opts[:item].root_category unless opts[:item].nil? 
-    @categories= Category.where(:level=>2)
+    @categories= [1,3,0,2].map{|x| Category.where(:level=>2)[x]}
     render
   end
 
   def leftnav opts
     @category = Category.find(params[:category_id].to_i) if params[:category_id]
     @category = opts[:item].category unless opts[:item].nil? 
-    @categories= Category.where(:level=>2)
+    @categories= [1,3,0,2].map{|x| Category.where(:level=>2)[x]}
     render
   end
 end
