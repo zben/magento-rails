@@ -1,11 +1,12 @@
 // top padding for body to keep the top bar from covering stuff up
 .topbar {
-	position:static;
+	//position:static;
 	  li.logo{
 	    padding:0;
 	  }
 }
 
+body {padding-top:80px;}
 
 a.add, a.remove{
   color:white;
@@ -20,4 +21,65 @@ a.remove{
 .pagination a {
     line-height: 30px;
     padding: 0 10px;
+}
+
+//PRODUCT LISTING STYLES
+.product {
+	margin-bottom:16px;
+	
+	h4 {line-height:1.25;}
+	
+	.prodImage img {
+		padding:5px;
+		border: 1px solid #ddd;
+    @include border-radius(4px);
+    @include box-shadow(0 1px 1px rgba(0,0,0,.075));
+    
+	}
+	
+}
+
+
+//FAKE LINK STYLE, FOR LINKS/buttons THAT ONLY WORK WITH JS
+.fakeLink {
+	color: $linkColor;
+	cursor: pointer;
+	&:hover {
+		color:$linkColorHover;
+		text-decoration:underline;
+	};
+}
+
+//WISHLIST STUFF
+.wishLists {
+	margin-left:0;
+	margin-top:4px;
+	list-style: none;
+	
+	//experimental border stuff
+	border: 1px solid #ddd;
+  @include border-radius(4px);
+  @include box-shadow(0 1px 1px rgba(0,0,0,.075));
+	
+	li {
+		font-size:12px;
+		a {
+			display: block;
+			//padding-left:24px;
+			padding: 3px 0px 3px 26px;
+			background:image-url("wishlist/notebook.png") 3px 4px no-repeat;
+		}
+		
+		a.addList {background-image: image-url('wishlist/notebook--plus.png');}
+		a.remList {background-image: image-url('wishlist/notebook--minus.png');}
+	}
+}
+
+.moveDown {margin-top:20px;}
+
+
+//CATEGORY LISTING STYLES
+.catNav, .catNav ul {
+	margin-left:12px;
+	list-style: none;
 }

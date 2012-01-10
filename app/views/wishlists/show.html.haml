@@ -1,12 +1,12 @@
 %h3 Wishlist: #{@wishlist.name}
-= link_to "rename wishlist", edit_wishlist_path(@wishlist)
+= link_to "rename wishlist", edit_wishlist_path(@wishlist), :class=>'btn small'
 |
-\#{link_to "delete wishlist", @wishlist, :confirm => 'Are you sure?', :method => :delete} 
+\#{link_to "delete wishlist", @wishlist, :confirm => 'Are you sure?', :method => :delete, :class=>'btn danger small'} 
 
-%p
-  -if @wishlist_items.empty?
-    This wishlist is currently empty! 
-  -else
-    =render @wishlist_items
+-if @wishlist_items.empty?
+  .alert-message.warning.moveDown
+    %p This wishlist is currently empty! You should add something to it!
+-else
+  =render @wishlist_items
   
 

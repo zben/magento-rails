@@ -18,3 +18,25 @@
 //= require bootstrap-tabs
 
 //= require_tree .
+
+$(document).ready(function(){
+	
+	//TOGGLE VISIBILITY OF WISHLISTS
+	$('.add_to_wishlist').each(function(){
+		$(this)
+			.children('h5')
+				//.addClass('fakeLink')
+				.addClass('btn')
+				.click(function(){
+					$(this).siblings('ul.wishLists').toggle(250, 'swing');
+				})
+				.end()
+			.children('ul.wishLists')
+				.hide();
+	});
+	
+	//WISHLIST ADD/REMOVE TOOLTIPS
+	$('.addList, .remList').twipsy({
+		'placement': 'left'
+	});
+});

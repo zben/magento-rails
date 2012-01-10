@@ -1,10 +1,11 @@
 %h2 Wishlist
 -if user_signed_in?
   -if current_user.wishlists.empty?
-    =link_to "add a wishlist",new_wishlist_path
+    =link_to "Create a wishlist",new_wishlist_path, :class=>'btn primary'
   -else
-    -current_user.wishlists.each do |wishlist|
-      %li=link_to "#{wishlist.name} ( #{wishlist.wishlist_items.count} )",wishlist
-    =link_to "add a wishlist",new_wishlist_path  
+    %ul.unstyled
+      -current_user.wishlists.each do |wishlist|
+        %li=link_to "#{wishlist.name} ( #{wishlist.wishlist_items.count} )",wishlist
+    =link_to "Add another wishlist",new_wishlist_path, :class=>'btn'
 -else
   Please #{link_to 'sign in',user_omniauth_authorize_path(:facebook)} to access your wishlists.

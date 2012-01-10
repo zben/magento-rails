@@ -1,5 +1,5 @@
 -product=wishlist_item.product
-.row
+.row.moveDown
   .span2
     =image_tag product.thumbnail_url, :width=>80
   .span8
@@ -7,4 +7,4 @@
     .row
       .span2 Price: #{product.price}
       .span3 added #{time_ago_in_words(wishlist_item.created_at)} ago
-      .span3=link_to 'remove from list', wishlist_item, :confirm => 'Are you sure?', :method => :delete
+      .span3=link_to 'remove from list', wishlist_item, :confirm => 'Are you sure?', :method => :delete, :class=>'btn danger'
