@@ -1,0 +1,6 @@
+@mixin standard-border($pad: 5px, $border-rad: 4px) {
+	padding:$pad;
+	border: 1px solid #ddd;
+  @include border-radius($border-rad);
+  @include box-shadow(0 1px 1px rgba(0,0,0,.075));
+}
