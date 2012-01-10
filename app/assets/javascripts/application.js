@@ -53,4 +53,7 @@ $(document).ready(function(){
 	$('.addList, .remList').twipsy({
 		'placement': 'left'
 	});
+	
+	//ACTIVATE TABS
+	$('.tabs').tabs();
 });
