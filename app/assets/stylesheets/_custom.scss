@@ -38,6 +38,8 @@ a.remove{
 //PRODUCT PAGE STYLES
 
 .mainImg {
+	display:block;
+	margin-bottom:20px;
 	@include standard-border();
 }
 
