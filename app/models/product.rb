@@ -41,6 +41,7 @@ class Product
         :small_image_url => @small_image_url,
         :category_ids => category_ids
       )  
+      x.categories.map{|cat| cat.products << x}
     end
   end
   
