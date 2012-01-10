@@ -2,12 +2,12 @@
 %table
   %tr
     %th Name
-    %th User
+    %th(colspan=4) User
   - for wishlist in @wishlists
     %tr
       %td= wishlist.name
       %td= wishlist.user_id
-      %td= link_to "Show", wishlist
-      %td= link_to "Edit", edit_wishlist_path(wishlist)
-      %td= link_to "Destroy", wishlist, :confirm => 'Are you sure?', :method => :delete
-%p= link_to "New Wishlist", new_wishlist_path
+      %td= link_to "Show", wishlist, :class=>'btn'
+      %td= link_to "Edit", edit_wishlist_path(wishlist), :class=>'btn'
+      %td= link_to "Destroy", wishlist, :confirm => 'Are you sure?', :method => :delete, :class=>'btn danger'
+%p= link_to "New Wishlist", new_wishlist_path, :class=>'btn'

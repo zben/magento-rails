@@ -1,9 +1,10 @@
 = form_for @wishlist do |f|
   = f.error_messages
-  %p
-    = f.label :wishlist_name
-    %br/
-    = f.text_field :name
+  .row.moveDown
+    = f.label :name, "Wishlist Name"
+    .input
+      = f.text_field :name
 
    
-  %p= f.submit
+    .input.moveDown
+      = f.submit :class=>'btn primary'
