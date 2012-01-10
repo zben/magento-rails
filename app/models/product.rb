@@ -12,7 +12,6 @@ class Product
   has_and_belongs_to_many :categories
   
   def self.populate
-    Product.all.delete
     products = MagentoAPI.xmlcall('product.list')
     products.each do |product|
       puts product_id = product['product_id'].to_i
@@ -30,9 +29,8 @@ class Product
           instance_variable_set "@#{name}_url", hash['url']  
         end
       end
-  
-      x = Product.create(
-        :id => product_id, 
+      x= Product.find_or_create_by(:id => product_id)
+      x.update_attributes(
         :price => product_info['price'],
         :sku => product['sku'],
         :name => product['name'],

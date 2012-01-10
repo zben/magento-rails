@@ -1,4 +1,30 @@
 class MagentoAPI
+
+
+      @@soap_client = Savon::Client.new do
+        wsdl.document = "http://mrails.gostorego.com/index.php/api/?wsdl"
+      end
+     
+      response = @@soap_client.request :login do
+        soap.body = { :username => API_USER, :apiKey => API_KEY }
+      end
+     
+      @@soap_session =  response[:login_response][:login_return];
+
+  
+  def self.restart
+       @@soap_client = Savon::Client.new do
+        wsdl.document = "http://mrails.gostorego.com/index.php/api/?wsdl"
+      end
+     
+      response = @@soap_client.request :login do
+        soap.body = { :username => API_USER, :apiKey => API_KEY }
+      end
+     
+      @@soap_session =  response[:login_response][:login_return];
+
+  end
+  
   def self.xmlcall method, options={}
     require 'xmlrpc/client'
     #@client = XMLRPC::Client.new("localhost","/magentosite/api/xmlrpc/",80)
@@ -13,22 +39,18 @@ class MagentoAPI
   end
 
   
+
   
   def self.call method, options={}
-    client = Savon::Client.new do
-      wsdl.document = "http://mrails.gostorego.com/index.php/api/?wsdl"
-    end
-    response = client.request :login do
-      soap.body = { :username => API_USER, :apiKey => API_KEY }
-    end
-    session =  response[:login_response][:login_return];
-    response = client.request :call do
+    
+    response = @@soap_client.request :call do
         if options.empty?
-          soap.body = {:session => session,:method => method}
+          soap.body = {:session => @@soap_session,:method => method}
         elsif options[:string]
-          soap.body = {:session => session,:method => method, :arguments=>[options[:string]]}
+          soap.body = {:session => @@soap_session,:method => method, :arguments=>[options[:string]]}
         else
-          soap.body = {:session => session,:method => method, :arguments=>options}
+          puts options
+          soap.body = {:session => @@soap_session,:method => method, :arguments=>options}
         end
     end
     if response.success?
@@ -53,20 +75,14 @@ class MagentoAPI
   end
   
   def self.multicall method, options={}
-    client = Savon::Client.new do
-      wsdl.document = "http://mrails.gostorego.com/index.php/api/?wsdl"
-    end
-    response = client.request :login do
-      soap.body = { :username => API_USER, :apiKey => API_KEY }
-    end
-    session =  response[:login_response][:login_return];
-    response = client.request :multicall do
+   
+    response = @@soap_client.request :multicall do
         if options.empty?
-          soap.body = {:session => session,:method => method}
+          soap.body = {:session => @@soap_session,:method => method}
         elsif options[:string]
-          soap.body = {:session => session,:method => method, :arguments=>[options[:string]]}
+          soap.body = {:session => @@soap_session,:method => method, :arguments=>[options[:string]]}
         else
-          soap.body = {:session => session,:method => method, :arguments=>options}
+          soap.body = {:session => @@soap_session,:method => method, :arguments=>options}
         end
     end
     if response.success?
