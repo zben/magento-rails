@@ -1,4 +1,4 @@
-@mixin standard-border($pad: 5px, $border-rad: 4px) {
+@mixin standard-border($pad: 4px, $border-rad: 4px) {
 	padding:$pad;
 	border: 1px solid #ddd;
   @include border-radius($border-rad);

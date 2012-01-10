@@ -3,13 +3,16 @@
   .span4
     =image_tag @product.image_url,:width=>210,:class=>'mainImg'
 
+    -# MULTIPLE SIZES IN HERE JUST TO SEE HOW THEY LOOK
     %ul.media-grid
+      -# BIG ONES, ONLY TWO TO A LINE
       %li
         %a{:href=>'#'}
           %img{:src=>'http://placehold.it/90x90'}
       %li
         %a{:href=>'#'}
           %img{:src=>'http://placehold.it/90x90'}
+      -# SMALLER ONES, FOUR TO A LINE
       %li
         %a{:href=>'#'}
           %img{:src=>'http://placehold.it/30x30'}
@@ -37,7 +40,21 @@
       .span2
         =link_to 'Buy it!', '#', :class=>'btn primary'
 
+    -# SIZE/VARIANT OPTIONS
+    
+    -#.row
+    %form.variations.row
+      %label.span2{:for=>'variant'} Size
+      -#.input
+      .span4
+        %select.span4{:name=>'variant', :id=>'variant'}
+          %option S
+          %option M
+          %option L
+          %option XL
+          %option XXL
 
+    -# DESCRIPTIONS / SPECS / REVIEWS TABS
     %ul.tabs
       %li.active=link_to 'Description', '#desc'
       %li=link_to 'Specs', '#specs'
