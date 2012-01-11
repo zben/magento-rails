@@ -1,0 +1,49 @@
+//PRODUCT LISTING STYLES
+.product {
+	margin-bottom:16px;
+	
+	h4 {
+		line-height:1.25;
+		margin-bottom: $baseline / 2;
+	}
+	p {
+		font-size:12px;
+		line-height:1.25;
+		color: $grayDark;
+	}
+	
+	.prodImage img {
+		@include standard-border();
+	}
+}
+
+//PRODUCT PAGE STYLES
+
+.mainImg {
+	display:block;
+	margin-bottom:20px;
+	@include standard-border();
+}
+
+form.variations {
+	margin-top:20px;
+	label {
+		
+	}
+}
+
+//REVIEWS
+#review input, #review textarea{
+  width:100%;
+  margin-bottom:5px;
+}
+.review{
+  border-bottom:1px solid #666;
+  float:left;
+  clear:both;
+  .footer{
+    font-size:10px;
+    float:right;
+    margin-bottom:20px;
+  }
+}

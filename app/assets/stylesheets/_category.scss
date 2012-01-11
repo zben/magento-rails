@@ -1,0 +1,40 @@
+//CATEGORY LISTING STYLES
+.catNav, .catNav ul {
+	margin-left:0px;
+	list-style: none;
+}
+
+.catNav {@include standard-border();}
+
+.catNav li {
+	font-size:18px;
+	line-height:24px;
+	font-weight:bold;
+	
+	a {
+		display:block;
+		padding:3px 0px;
+		&:hover {
+			background-color: $grayLighter;
+		}
+	}
+	
+	li {
+		font-size:$basefont;
+		line-height:$baseline;
+		font-weight:normal;
+		a {padding-left:$baseline;}
+		li {
+			a {padding-left:$baseline * 2;}
+			li {
+				a {padding-left:$baseline * 3;}
+			}
+		}
+	}
+	
+}
+
+.pagination a {
+    line-height: 30px;
+    padding: 0 10px;
+}

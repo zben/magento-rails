@@ -1,0 +1,25 @@
+// top padding for body to keep the top bar from covering stuff up
+// this is temporary and will be refactored for visual cleanliness later
+.topbar {
+	//position:static;
+	  li.logo{
+	    a {
+				padding-top:6px;
+				padding-bottom:7px;
+				img { display:block; }
+			}
+	  }
+}
+
+body {padding-top:40px;}
+
+a.add, a.remove{
+  color:white;
+  background-color:#999;
+  padding:0px 5px;
+  margin:15px 0px;
+  border-radius:4px;
+}
+a.remove{
+  background:blue;
+}

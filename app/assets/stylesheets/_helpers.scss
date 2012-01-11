@@ -4,3 +4,17 @@
   @include border-radius($border-rad);
   @include box-shadow(0 1px 1px rgba(0,0,0,.075));
 }
+
+
+//FAKE LINK STYLE, FOR LINKS/buttons THAT ONLY WORK WITH JS
+.fakeLink {
+	color: $linkColor;
+	cursor: pointer;
+	&:hover {
+		color:$linkColorHover;
+		text-decoration:underline;
+	};
+}
+
+//does what it says - moves stuff down a bit
+.moveDown {margin-top:20px;}

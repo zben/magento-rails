@@ -1,0 +1,24 @@
+//WISHLIST STUFF
+.wishLists {
+	margin-left:0;
+	margin-top:4px;
+	list-style: none;
+	
+	//experimental border stuff
+	border: 1px solid #ddd;
+  @include border-radius(4px);
+  @include box-shadow(0 1px 1px rgba(0,0,0,.075));
+	
+	li {
+		font-size:12px;
+		a {
+			display: block;
+			//padding-left:24px;
+			padding: 3px 0px 3px 26px;
+			background:image-url("wishlist/notebook.png") 3px 4px no-repeat;
+		}
+		
+		a.addList {background-image: image-url('wishlist/notebook--plus.png');}
+		a.remList {background-image: image-url('wishlist/notebook--minus.png');}
+	}
+}
