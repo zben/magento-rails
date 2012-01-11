@@ -16,6 +16,7 @@
 //= require bootstrap-popover
 //= require bootstrap-scrollspy
 //= require bootstrap-tabs
+//= require bootstrap-buttons
 
 //= require_tree .
 
