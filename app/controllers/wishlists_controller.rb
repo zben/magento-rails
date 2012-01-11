@@ -9,13 +9,13 @@ class WishlistsController < ApplicationController
   end
 
   def new
-    @wishlist = current_user.wishlists.build
+    @wishlist = Wishlist.new
   end
 
   def create
     @wishlist = current_user.wishlists.build(params[:wishlist])
     if @wishlist.save
-      redirect_to @wishlist, :notice => "Successfully created wishlist."
+      redirect_to root_path, :notice => "Successfully created wishlist."
     else
       render :action => 'new'
     end
@@ -37,6 +37,6 @@ class WishlistsController < ApplicationController
   def destroy
     @wishlist = Wishlist.find(params[:id])
     @wishlist.destroy
-    redirect_to wishlists_url, :notice => "Successfully destroyed wishlist."
+    redirect_to root_path, :notice => "Successfully destroyed wishlist."
   end
 end

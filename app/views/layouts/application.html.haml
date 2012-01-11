@@ -11,7 +11,9 @@
     .container
       .row
         .span3=render_cell :nav, :leftnav, :item=>@product
-        .span10=yield 
+        .span10
+          /=render 'layouts/flash',:flash=>flash #hiding this section for now
+          =yield 
         .span3
           =render 'layouts/sidebar'
       

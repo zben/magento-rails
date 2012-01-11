@@ -6,7 +6,7 @@ class Review
   field :content, type: String
   field :user_id, type: Integer
   field :product_id, type: Integer
-  
+  field :created_at, type: DateTime
   belongs_to :product
   
   def user
