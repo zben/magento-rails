@@ -1,0 +1,9 @@
+<%- if !flash.nil?%>
+<%- flash.each do |key, msg| -%>
+  <div id="<%= key %>">
+    <p style="float:right;"><%= link_to_function 'X', "$('##{key}').hide('slow')" %></p>
+    <p><%= msg %></p>
+    <div class="clear"></div>
+  </div>
+<%- end -%>
+<%-end-%>

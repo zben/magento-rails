@@ -3,7 +3,6 @@ class Category
   field :level, type: Integer
   field :name, type: String
   field :is_active, type: Boolean
-
   has_and_belongs_to_many :products
   has_many :children, :class_name=>"Category",  :inverse_of=>:parent
   belongs_to :parent, :class_name=>"Category",  :inverse_of=>:children
