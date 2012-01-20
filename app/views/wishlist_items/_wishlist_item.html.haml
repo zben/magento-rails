@@ -7,4 +7,4 @@
     .row
       .span2 Price: #{product.price}
       .span3 added #{time_ago_in_words(wishlist_item.created_at)} ago
-      .span3=link_to 'remove from list', wishlist_item, :confirm => 'Are you sure?', :method => :delete, :class=>'btn danger'
+      .span3=link_to 'remove from list', wishlist_item, :confirm => 'Are you sure?', :method => :delete, :class=>'btn danger' if wishlist_item.wishlist.user==current_user

@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 gem 'devise','1.5.2'
 gem "omniauth-facebook"
+gem "koala"
 gem "erb2haml", :group => :development
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -13,6 +14,8 @@ gem 'cells'
 gem 'mongoid'
 gem 'bson_ext'
 gem 'savon'
+gem "puffer"
+gem "orm_adapter"
 gem 'rest-client'
 # Gems used only for assets and not required
 # in production environments by default.

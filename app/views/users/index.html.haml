@@ -1,0 +1,12 @@
+%table.zebra-striped.bordered-table
+  %tr
+    %th name
+    %th join date
+    %th wishlist item count
+    
+  - for user in @users
+    %tr
+      %td=link_to user.name, user
+      %td=l user.created_at.to_date,:format=>:long
+      %td= user.wishlist_items.count
+   

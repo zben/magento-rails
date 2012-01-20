@@ -10,7 +10,7 @@ Magento::Application.routes.draw do
   match 'populate/:class_name'=>"products#populate", :as=>"populate"
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
+  resources :users
   devise_scope :user do
     get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
   end

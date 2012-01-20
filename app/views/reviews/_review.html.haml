@@ -3,6 +3,6 @@
   %p=review.content
   .footer
     posted by 
-    =link_to review.user.name, '' 
+    =link_to review.user.name, review.user 
     #{time_ago_in_words(review.created_at)} ago
 
