@@ -4,8 +4,7 @@ This is an application that attempts to solve real problems at work. Magento is 
 
 Rails is great for front-end development because there is total decoupling of front-end and back-end. The idea of this project is to combine the best of both worlds, using Rails for front-end and feature additions and use Magento for product relation store and order processing and management.
 
-### demo site
-(http://magentorails.heroku.com)
+**demo site:** http://magentorails.heroku.com
 
 ## Techincal keywords
 MongoDB/MongoID, Omniauth, Magento API, Twitter Bootstrap
