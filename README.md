@@ -6,8 +6,8 @@ Rails is great for front-end development because there is total decoupling of fr
 
 **demo site:** http://magentorails.heroku.com
 
-## Techincal keywords
-MongoDB/MongoID, Omniauth, Magento API, Twitter Bootstrap
+## Keywords
+Rails 3.1, MongoDB/MongoID, Omniauth, Magento API, Twitter Bootstrap
   
 ## Objectives achieved
 1. Allows Omniauth sign-in which is a breeze in Rails and would be difficult in Magento. When a user first sign in, a Magento user will be created through Magento SOAP API. All activity of omniauth user can be mapped to the Magento user.
