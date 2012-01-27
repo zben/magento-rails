@@ -1,13 +1,13 @@
-== Project Background
+## Project Background
 
 This is an application that attempts to solve real problems at work. Magento is a popular PHP-based e-commerce platform with strong features. It allows flexible attributes set for products. However, a major downside of Magento is that it is difficult to customize the front-end, especially when you want to add new pages, morph components on different pages into one. It would involves a lot of XML declarations for even a simple modification.
 
 Rails is great for front-end development because there is total decoupling of front-end and back-end. The idea of this project is to combine the best of both worlds, using Rails for front-end and feature additions and use Magento for product relation store and order processing and management.
 
-==Techincal keywords
+## Techincal keywords
 MongoDB/MongoID, Omniauth, Magento API, Bootstrap
   
-== Objectives achieved
+## Objectives achieved
 1. Allows Omniauth sign-in which is a breeze in Rails and would be difficult in Magento. When a user first sign in, a Magento user will be created through Magento SOAP API. All activity of omniauth user can be mapped to the Magento user.
 
 2. Used MongoDB for product/category data. Ideally it would work to use MongoDB for all of the data. But I wanted to demonstrate that MongoID allows user to interact with SQL data without a problem through model methods. MongoDB for product data is espeically great because lack of schema allows you to have very flexible product model for different product types.
@@ -21,7 +21,7 @@ MongoDB/MongoID, Omniauth, Magento API, Bootstrap
 6. Allows Rails site on Heroku talk successfuly with a remotely hosted Magento test store through API. This means I don't need to run a local instance of Magento to make this proof of concept. 
 
 
-== Areas for improvements
+## Areas for improvements
 1. Because Magento API does not conform to SOAP standards entirely, certain API calls cannot be made successfully with the correct arguments passed. Therefore order placement cannot be currently done. More tweaking needs to be done to make Magento API fully usable.
 
 2. Instead of doing a nightly update of product data. We could implementa mutual push system. When there is a change in Magento product data, Magento should send out a API request to update that data on the Rails site and vice versa. This is equivalent to granular caching where any granular change will propagate itself, making a full resync unnecessary.
