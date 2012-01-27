@@ -17,11 +17,7 @@ MongoDB/MongoID, Omniauth, Magento API, Bootstrap
 4. Manual synchronization of product data. As of now, a sync product button is on the page to allows re-building of product and category data which takes about 5 minutes. Calling API to get all product information needed to render a page is impractical because Magento API is slow and some information can only be retrieved after 2 or 3 API calls.
 
 5. Added multiple wishlist feature, which is not supported by Magento natively. 
-公共债务上限提高1.2万亿美元的要求，表明美国联邦政府寅吃卯粮的局面将延续。 www.6park.com
 
-　　奥巴马12日向国会提出要求，将联邦政府公共债务上限调高1.2万亿美元，因为当时美国联邦政府的举债总额距15.2万亿美元的公共债务上限不足1000亿美元。 www.6park.com
-
-　　根据民主、共和两党去年夏天达成的协议，国会议员有15天时间就总统提出的要求进行表决。共和党主导的美国会众议院18日投票否决了奥巴马的要求，但是奥巴马可以对国会的反对决议行使否决权，从而确保公共债务上限上调。 www.6park.com
 6. Allows Rails site on Heroku talk successfuly with a remotely hosted Magento test store through API. This means I don't need to run a local instance of Magento to make this proof of concept. 
 
 
