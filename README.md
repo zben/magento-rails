@@ -4,8 +4,11 @@ This is an application that attempts to solve real problems at work. Magento is 
 
 Rails is great for front-end development because there is total decoupling of front-end and back-end. The idea of this project is to combine the best of both worlds, using Rails for front-end and feature additions and use Magento for product relation store and order processing and management.
 
+### demo site
+(http://magentorails.heroku.com)
+
 ## Techincal keywords
-MongoDB/MongoID, Omniauth, Magento API, Bootstrap
+MongoDB/MongoID, Omniauth, Magento API, Twitter Bootstrap
   
 ## Objectives achieved
 1. Allows Omniauth sign-in which is a breeze in Rails and would be difficult in Magento. When a user first sign in, a Magento user will be created through Magento SOAP API. All activity of omniauth user can be mapped to the Magento user.
